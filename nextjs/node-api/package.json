@@ -1,0 +1,9 @@
+{
+  "name": "ticket-sales-nextjs-node-api",
+  "version": "1.0.0",
+  "author": "<kastor.code/> Matheus Ramalho de Oliveira",
+  "main": "api.js",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

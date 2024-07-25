@@ -1,0 +1,23 @@
+services:
+
+  golang-postgres:
+    container_name: golang-postgres
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./.docker/postgres:/docker-entrypoint-initdb.d
+    #  - ./.docker/dbdata:/var/lib/postgresql/data
+
+  golang:
+    container_name: golang
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

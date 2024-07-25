@@ -1,0 +1,59 @@
+@partner1Port = 3000
+@partner2Port = 3001
+@baseUrl = http://localhost:{{partner1Port}}
+@partner1Token = 123
+@partner2Token = 987
+@eventId = {{createEvent.response.body.id}}
+@spotName = {{createSpot.response.body.name}}
+
+### Get all events
+GET {{baseUrl}}/events
+
+### Create new event
+#   @name createEvent
+POST {{baseUrl}}/events
+content-type: application/json
+
+{
+  "name": "My event",
+  "description": "My event description",
+  "date": "2024-07-06T00:00:00",
+  "price": 100
+}
+
+### Get an event
+GET {{baseUrl}}/events/{{eventId}}
+
+### Update event
+PATCH {{baseUrl}}/events/{{eventId}}
+content-type: application/json
+
+{
+  "description": "My new description"
+}
+
+### Delete an event
+DELETE {{baseUrl}}/events/{{eventId}}
+
+### Create new event spot
+#   @name createSpot
+POST {{baseUrl}}/events/{{eventId}}/spots
+content-type: application/json
+
+{
+  "name": "A1"
+}
+
+### Get all event spots
+GET {{baseUrl}}/events/{{eventId}}/spots
+
+### Reserve event spots
+POST {{baseUrl}}/events/{{eventId}}/reserve
+content-type: application/json
+x-api-token: {{partner1Token}}
+
+{
+  "spots": ["{{spotName}}"],
+  "ticketKind": "full",
+  "email": "email@mail.com"
+}

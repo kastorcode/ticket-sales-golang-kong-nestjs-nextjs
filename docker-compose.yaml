@@ -1,0 +1,8 @@
+include:
+  - golang/docker-compose.yaml
+  - kong/docker-compose.yaml
+  - nestjs/docker-compose.yaml
+  - nextjs/docker-compose.yaml
+
+# /etc/hosts
+# 127.0.0.1 host.docker.internal

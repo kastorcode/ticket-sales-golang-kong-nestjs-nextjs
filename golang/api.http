@@ -1,0 +1,26 @@
+@baseUrl=http://host.docker.internal:8080
+@eventId={{getEvents.response.body.events[0].id}}
+@spotName={{getSpots.response.body.spots[0].name}}
+
+### Get all events
+#   @name getEvents
+GET {{baseUrl}}/events
+
+### Get an event
+GET {{baseUrl}}/events/{{eventId}}
+
+### Get event spots
+#   @name getSpots
+GET {{baseUrl}}/events/{{eventId}}/spots
+
+### Buy event tickets
+POST {{baseUrl}}/checkout
+content-type: application/json
+
+{
+  "eventId": "{{eventId}}",
+  "spots": ["{{spotName}}"],
+  "ticketKind": "full",
+  "cardHash": "card_hash_example",
+  "email": "mail@email.com"
+}

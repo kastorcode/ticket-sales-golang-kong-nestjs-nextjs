@@ -1,0 +1,4 @@
+@baseUrl=http://localhost:3000
+@eventId=1
+
+POST {{baseUrl}}/api/events/{{eventId}}/revalidate
