@@ -88,6 +88,8 @@ Next.js Client
 3. Run `yarn dev` to launch the development server;
 4. You can access the frontend at `http://localhost:8000/nextjs` or `http://host.docker.internal:8000/nextjs`.
 
+You can access the Kong Manager at `http://localhost:8002` or `http://host.docker.internal:8002`.
+
 The `api.http` files has CURL requests that can be made using the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension.
 
 The containers communicate over an internal Docker network at the `host.docker.internal` address. If you want to access this address outside of Docker, add `127.0.0.1 host.docker.internal` in the file `/etc/hosts`.
